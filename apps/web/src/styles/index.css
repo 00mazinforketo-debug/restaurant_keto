@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-main: #080b14;
+  --bg-panel: rgba(12, 17, 29, 0.72);
+  --text-main: #f8fafc;
+  --text-soft: #94a3b8;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg-main: #f5f7fb;
+  --bg-panel: rgba(255, 255, 255, 0.84);
+  --text-main: #0f172a;
+  --text-soft: #475569;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 14.5px;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Arabic", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(251, 146, 60, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.18), transparent 30%),
+    linear-gradient(180deg, #050816 0%, var(--bg-main) 100%);
+  color: var(--text-main);
+  overflow-x: hidden;
+  min-width: 320px;
+  line-height: 1.45;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  min-width: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(251, 191, 36, 0.35);
+}
+
+#root {
+  isolation: isolate;
+}
+
+textarea {
+  resize: vertical;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 15.25px;
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 15.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen px-3 py-3 text-slate-50 sm:px-4 sm:py-4;
+  }
+
+  .app-panel {
+    @apply rounded-[20px] border border-white/10 bg-white/5 p-3.5 backdrop-blur-xl sm:rounded-[28px] sm:p-5;
+  }
+
+  .app-panel-strong {
+    @apply rounded-[20px] border border-white/10 bg-slate-950/45 p-3.5 shadow-glow backdrop-blur-xl sm:rounded-[28px] sm:p-5;
+  }
+
+  .compact-input {
+    @apply w-full rounded-2xl border border-white/10 bg-slate-950/35 px-3.5 py-2.5 text-[0.95rem] text-white outline-none transition focus:border-amber-300/50;
+  }
+
+  .compact-pill-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-[0.85rem] text-slate-200 backdrop-blur transition hover:bg-white/10;
+  }
+
+  .compact-icon-button {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-[18px] border border-white/10 bg-white/5 text-slate-100 backdrop-blur transition hover:bg-white/10 sm:h-11 sm:w-11 sm:rounded-2xl;
+  }
+
+  .compact-primary-button {
+    @apply rounded-2xl bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 px-4 py-3 font-display text-base font-bold text-slate-950 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .app-stage {
+    @apply mx-auto w-full;
+    max-width: 42rem;
+  }
+
+  .app-stage-admin {
+    @apply mx-auto w-full;
+    max-width: 44rem;
+  }
+}
+
+@layer utilities {
+  @media (min-width: 768px) {
+    .app-stage {
+      max-width: 48rem;
+    }
+
+    .app-stage-admin {
+      max-width: 52rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .app-stage {
+      max-width: 54rem;
+    }
+
+    .app-stage-admin {
+      max-width: 58rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .app-stage {
+      max-width: 58rem;
+    }
+
+    .app-stage-admin {
+      max-width: 64rem;
+    }
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
