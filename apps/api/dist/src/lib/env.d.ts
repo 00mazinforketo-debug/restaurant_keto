@@ -1,0 +1,20 @@
+export declare const env: {
+    NODE_ENV: "development" | "test" | "production";
+    PORT: number;
+    WEB_ORIGIN: string;
+    API_ORIGIN: string;
+    COOKIE_DOMAIN: string;
+    DATABASE_URL: string;
+    PIN_LOOKUP_SECRET: string;
+    JWT_ACCESS_SECRET: string;
+    JWT_REFRESH_SECRET: string;
+    CSRF_SECRET: string;
+    SEED_ADMIN_PIN: string;
+    SEED_CUSTOMER_PIN: string;
+    REDIS_URL?: string | undefined;
+    CLOUDINARY_CLOUD_NAME?: string | undefined;
+    CLOUDINARY_API_KEY?: string | undefined;
+    CLOUDINARY_API_SECRET?: string | undefined;
+    SENTRY_DSN?: string | undefined;
+};
+export declare const isProduction: boolean;
