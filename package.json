@@ -1,0 +1,31 @@
+{
+  "name": "restaurant-ordering-system",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @ros/shared && npm run build --workspace @ros/api && npm run build --workspace @ros/web",
+    "check:netlify": "node scripts/check-netlify-login.mjs",
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm run dev --workspace @ros/api",
+    "dev:web": "npm run dev --workspace @ros/web",
+    "format": "prettier --write .",
+    "lint": "npm run lint --workspace @ros/shared && npm run lint --workspace @ros/api && npm run lint --workspace @ros/web",
+    "prisma:generate": "npm run prisma:generate --workspace @ros/api",
+    "prisma:migrate": "npm run prisma:migrate --workspace @ros/api",
+    "seed": "npm run seed --workspace @ros/api",
+    "test": "npm run test --workspace @ros/shared && npm run test --workspace @ros/api && npm run test --workspace @ros/web"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.7.4",
+    "@netlify/functions": "^5.1.5"
+  }
+}

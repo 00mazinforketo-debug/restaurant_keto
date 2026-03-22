@@ -1,0 +1,20 @@
+[build]
+  base = "."
+  command = "npm install && npm run build --workspace @ros/shared && npm run build --workspace @ros/web"
+  publish = "apps/web/dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["@netlify/blobs", "@netlify/functions"]
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
